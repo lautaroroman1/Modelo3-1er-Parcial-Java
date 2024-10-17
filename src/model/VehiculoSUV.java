@@ -17,18 +17,21 @@ public class VehiculoSUV extends Vehiculo {
         this.traccionIntegral = traccionIntegral;
     }
     
-    
+    public boolean esTraccionIntegral() {
+        return traccionIntegral;
+    }
 
     @Override
     public double calcularCostoReparacion(int horas) {
         double costoTotal = this.precioBase * horas;
         
-        if (this.traccionIntegral){
+        if (esTraccionIntegral()){
             costoTotal *= 1.10;
         }
         
         return costoTotal;
     }
+    
     
     
 }
