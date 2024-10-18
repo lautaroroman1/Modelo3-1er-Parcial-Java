@@ -48,4 +48,6 @@ public class VehiculoCompacto extends Vehiculo {
         return costoTotal; 
     }
     
+    
+    
 }

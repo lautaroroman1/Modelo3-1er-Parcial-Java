@@ -29,6 +29,11 @@ public abstract class Vehiculo {
     protected List<String> historialReparaciones;
 
     public Vehiculo(String codigoVehiculo, String modelo, double precioBase) {
+        if (codigoVehiculo.length() != 7) {
+            throw new IllegalArgumentException("El código del vehículo debe tener 7 caracteres.");
+        }
+         
+         
         this.codigoVehiculo = codigoVehiculo;
         this.modelo = modelo;
         this.precioBase = precioBase;
@@ -41,6 +46,9 @@ public abstract class Vehiculo {
     }
 
     public void setEstado(EstadoVehiculo estado) {
+        if (codigoVehiculo.length() != 7) {
+            throw new IllegalArgumentException("El código del vehículo debe tener 7 caracteres.");
+        }
         this.estado = estado;
     }
 
@@ -48,7 +56,8 @@ public abstract class Vehiculo {
         return codigoVehiculo;
     }
 
-    public void setCodigoVehiculo(String codigoVehiculo) {
+    public void setCodigoVehiculo(String codigoVehiculo) throws Exception{
+        
         this.codigoVehiculo = codigoVehiculo;
     }
 
@@ -91,5 +100,12 @@ public abstract class Vehiculo {
     public List<String> obtenerHistorialReparaciones() {
         return historialReparaciones;
     }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" + "codigoVehiculo=" + codigoVehiculo + ", modelo=" + modelo + ", precioBase=" + precioBase + ", estado=" + estado + ", historialReparaciones=" + historialReparaciones + '}';
+    }
+    
+    
     
 }

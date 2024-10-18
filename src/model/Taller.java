@@ -50,7 +50,7 @@ public class Taller {
         throw new Exception("No existe un vehículo con ese código");
     }
     
-    public void iniciarReparacion(String codigoVehiculo,  String nombreTaller, String descripcion) throws Exception{
+    public void iniciarReparacion(String codigoVehiculo, String descripcion) throws Exception{
         for (Vehiculo v: inventarioVehiculos){
             if (v.getCodigoVehiculo().equals(codigoVehiculo)){
                 if (v.getEstado() == Vehiculo.EstadoVehiculo.EN_REPARACION){
@@ -59,6 +59,7 @@ public class Taller {
                 
                 v.iniciarReparacion(nombreTaller, descripcion);
                 vehiculosEnReparacion.add(v);
+                return;
             }
         }
         throw new Exception("No existe un vehículo con ese código");
